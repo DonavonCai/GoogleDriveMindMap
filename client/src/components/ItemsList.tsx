@@ -33,20 +33,22 @@ function ItemsList() {
   }, []);
 
   if (state.status === 'idle' || state.status === 'loading') {
-    return <p className="status-message">Loading items...</p>;
+    return <p className="p-4 text-base text-gray-600">Loading items...</p>;
   }
 
   if (state.status === 'error') {
-    return <p className="status-message">Error: {state.message}</p>;
+    return <p className="p-4 text-base text-gray-600">Error: {state.message}</p>;
   }
 
   return (
-    <ul className="items-list" aria-label="Drive items">
+    <ul className="flex flex-col gap-3 list-none" aria-label="Drive items">
       {state.items.map((item) => (
-        <li key={item.id} className="item-card">
-          <h3>{item.name}</h3>
-          <p>{item.mimeType}</p>
-          <p>Modified: {new Date(item.modifiedTime).toLocaleDateString()}</p>
+        <li key={item.id} className="bg-white border border-gray-200 rounded-lg px-5 py-4">
+          <h3 className="text-base font-semibold">{item.name}</h3>
+          <p className="text-sm text-gray-500 mt-1">{item.mimeType}</p>
+          <p className="text-sm text-gray-500 mt-1">
+            Modified: {new Date(item.modifiedTime).toLocaleDateString()}
+          </p>
         </li>
       ))}
     </ul>
