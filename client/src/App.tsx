@@ -6,6 +6,7 @@ function App() {
       <header className="mb-8">
         <h1 className="text-3xl font-bold">Google Drive Mind Map</h1>
       </header>
+      <script src="https://accounts.google.com/gsi/client" async></script>
       <main>
         <ItemsList />
       </main>
